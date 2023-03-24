@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', Arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f8f9fa;
+}
+
+#gameBoard {
+	display: grid;
+	grid-template-columns: repeat(7, 50px);
+	grid-template-rows: repeat(6, 50px);
+	gap: 5px;
+}
+
+.cell {
+	width: 50px;
+	height: 50px;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.player1 {
+	background-color: red;
+}
+
+.player2 {
+	background-color: yellow;
+}
+
+@keyframes drop {
+	0% {
+	  transform: translateY(-100%);
+	  opacity: 0;
+	}
+	100% {
+	  transform: translateY(0%);
+	  opacity: 1;
+	}
+}
+
+.cell.player1-animate,
+.cell.player2-animate {
+	animation: drop 0.1s ease-in-out;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.start-form-container {
+	background-color: #fff;
+	padding: 2rem;
+	border-radius: 10px;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.start-form-container h1 {
+	margin-bottom: 1.5rem;
+	text-align: center;
+	color: #4a4a4a;
+	font-weight: 700;
+}
+
+.start-form-container form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group {
+	margin-bottom: 1.5rem;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: #4a4a4a;
+	font-weight: 400;
+}
+
+.form-group input {
+	width: 100%;
+	padding: 0.75rem;
+	border: 1px solid #ced4da;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+button {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: #007bff;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+	font-size: 1rem;
+}
+
+button:hover {
+	background-color: #0056b3;
+	transform: translateY(-2px);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+}
